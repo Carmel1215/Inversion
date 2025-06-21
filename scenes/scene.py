@@ -1,6 +1,7 @@
 import pygame
 
 class Scene:
+    '''모든 씬이 상속하는 부모 클래스'''
     def __init__(self, game):
         self.game = game
 
