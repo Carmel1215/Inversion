@@ -1,4 +1,3 @@
-from core import settings
 from scenes.scene import Scene
 import pygame
 
@@ -17,4 +16,4 @@ class IntroScene(Scene):
         pass
 
     def draw(self, screen):
-        screen.fill(settings.WHITE)
+        screen.fill((0, 0, 0))

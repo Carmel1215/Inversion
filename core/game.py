@@ -25,6 +25,7 @@ class Game:
             self.clock.tick(settings.FPS)
 
     def handle_events(self, events):
+        """모든 씬에 적용되는 프로그램 종료 함수"""
         for event in events:
             if event.type == pygame.QUIT:
                 self.running = False
