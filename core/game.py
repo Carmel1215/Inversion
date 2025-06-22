@@ -18,14 +18,14 @@ class Game:
         '''메인 루프'''
         while self.running:
             events = pygame.event.get()
-            self.handle_events(events)
+            self.handle_quit(events)
             self.scene_manager.handle_events(events)
             self.scene_manager.update()
             self.scene_manager.draw(self.screen)
             pygame.display.flip()
             self.clock.tick(settings.FPS)
 
-    def handle_events(self, events):
+    def handle_quit(self, events):
         '''모든 씬에 적용되는 프로그램 종료 함수'''
         for event in events:
             if event.type == pygame.QUIT:
