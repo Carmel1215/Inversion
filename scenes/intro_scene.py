@@ -12,6 +12,8 @@ class IntroScene(Scene):
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_SPACE:
                     print("Space Pressed")
+                if event.key == pygame.K_RETURN:
+                    print("Return pressed")
 
     def update(self, delta_time):
         pass
