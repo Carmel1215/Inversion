@@ -8,7 +8,7 @@ class Scene:
     def handle_events(self, events):
         raise NotImplementedError
 
-    def update(self):
+    def update(self, delta_time):
         raise NotImplementedError
 
     def draw(self, screen):

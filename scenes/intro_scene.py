@@ -13,7 +13,7 @@ class IntroScene(Scene):
                 if event.key == pygame.K_SPACE:
                     print("Space Pressed")
 
-    def update(self):
+    def update(self, delta_time):
         pass
 
     def draw(self, screen):
