@@ -1,9 +1,7 @@
-import pygame
 
-SCREEN_WIDTH = 1200
-SCREEN_HEIGHT = 800
-FPS = 60
 TITLE = "Inversion"
+FPS = 150
+SCALE = 4
 # icon = pygame.image.load("assets/images/icon.png")
 
 # 색깔
