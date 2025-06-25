@@ -1,4 +1,4 @@
-import pygame
+import pygame, os
 from core.loader import load
 
 class Player:
@@ -6,7 +6,7 @@ class Player:
         self.x = x
         self.y = y
         self.speed = speed
-        self.player = load('assets/images/Player.png')
+        self.player = load(os.path.join('assets', 'images', 'Player.png'))
 
     def update(self, delta_time, keys):
         dx = dy = 0
