@@ -18,5 +18,6 @@ class IntroScene(Scene):
         self.player.update(delta_time, keys)
 
     def draw(self, screen):
-        screen.fill(WHITE)
+        screen.fill(BLACK)
         self.player.draw(screen)
+
