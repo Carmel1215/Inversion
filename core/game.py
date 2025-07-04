@@ -18,16 +18,18 @@ class Game:
     def run(self):
         '''메인 루프'''
 
-        font = pygame.font.SysFont("Arial", 16)
+        fps_font = pygame.font.SysFont("Arial", 16) # 디버깅용 FPS 출력 폰트
         while self.running:
-            fps = self.clock.get_fps()
             delta_time = self.clock.tick(settings.FPS) / 1000 # deltatime
             events = pygame.event.get()
             self.handle_quit(events)
             self.scene_manager.handle_events(events)
             self.scene_manager.update(delta_time)
             self.scene_manager.draw(self.screen)
-            fps_text = font.render(f"FPS: {fps:.1f}", True, (0, 255, 0))
+
+            # 디버깅용 FPS 출력
+            fps = self.clock.get_fps()
+            fps_text = fps_font.render(f"FPS: {fps:.1f}", True, (0, 255, 0))
             self.screen.blit(fps_text, (10, 10))
 
             pygame.display.update()
