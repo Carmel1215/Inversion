@@ -1,31 +1,72 @@
 import pygame, os
+from core.animator import Animator
+from core.animation import Animation
 import core.assets as assets
+
 
 class Player:
     def __init__(self, x, y, speed=300):
         self.x = x
         self.y = y
         self.speed = speed
-        self.player = assets.BLACK_PLAYER_IDLE_FRONT[0]
+        self.direction = 'Front' # 'Front' 또는 'Back' 또는 'Left' 또는 'Right'
+        self.state = 'Idle' # 'Idle' 또는 'Walk'
+
+        self.animator = Animator({
+            # Black Idle
+            "BlackIdleFront" : Animation(assets.BLACK_PLAYER_IDLE_FRONT, 0.5),
+            "BlackIdleBack" : Animation(assets.BLACK_PLAYER_IDLE_BACK, 0.5),
+            "BlackIdleLeft" : Animation(assets.BLACK_PLAYER_IDLE_LEFT, 0.5),
+            "BlackIdleRight" : Animation(assets.BLACK_PLAYER_IDLE_RIGHT, 0.5),
+
+            # Black Walk
+            "BlackWalkFront" : Animation(assets.BLACK_PLAYER_WALK_FRONT),
+            "BlackWalkBack" : Animation(assets.BLACK_PLAYER_WALK_BACK),
+            "BlackWalkLeft" : Animation(assets.BLACK_PLAYER_WALK_LEFT),
+            "BlackWalkRight" : Animation(assets.BLACK_PLAYER_WALK_RIGHT),
+
+            # White Idle
+            "WhiteIdleFront" : Animation(assets.WHITE_PLAYER_IDLE_FRONT, 0.5),
+            "WhiteIdleBack" : Animation(assets.WHITE_PLAYER_IDLE_BACK, 0.5),
+            "WhiteIdleLeft" : Animation(assets.WHITE_PLAYER_IDLE_LEFT, 0.5),
+            "WhiteIdleRight" : Animation(assets.WHITE_PLAYER_IDLE_RIGHT, 0.5),
+
+            # White Walk
+            "WhiteWalkFront" : Animation(assets.WHITE_PLAYER_WALK_FRONT),
+            "WhiteWalkBack" : Animation(assets.WHITE_PLAYER_WALK_BACK),
+            "WhiteWalkLeft" : Animation(assets.WHITE_PLAYER_WALK_LEFT),
+            "WhiteWalkRight" : Animation(assets.WHITE_PLAYER_WALK_RIGHT),
+        })
+        self.animator.set("BlackIdleFront")
 
     def update(self, delta_time, keys):
         dx = dy = 0
-
+        is_moving = False
         if keys[pygame.K_w]:
             dy -= 1
-            # TODO: 다른 방향 바라보는 이미지로 변경 코드 작성
+            self.direction = 'Back'
+            is_moving = True
         if keys[pygame.K_s]:
             dy += 1
-            # TODO: 다른 방향 바라보는 이미지로 변경 코드 작성
+            self.direction = 'Front'
+            is_moving = True
         if keys[pygame.K_a]:
             dx -= 1
-            # TODO: 다른 방향 바라보는 이미지로 변경 코드 작성
+            self.direction = 'Left'
+            is_moving = True
         if keys[pygame.K_d]:
             dx += 1
-            # TODO: 다른 방향 바라보는 이미지로 변경 코드 작성
+            self.direction = 'Right'
+            is_moving = True
+
+        self.state = 'Walk' if is_moving else 'Idle'
 
         self.x += dx * self.speed * delta_time
         self.y += dy * self.speed * delta_time
 
+        animation_name = f"Black{self.state}{self.direction}"
+        self.animator.set(animation_name)
+        self.animator.update(delta_time)
+
     def draw(self, screen):
-        screen.blit(self.player, (self.x, self.y))
+        screen.blit(self.animator.get_image(), (self.x, self.y))
