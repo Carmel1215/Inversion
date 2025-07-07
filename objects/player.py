@@ -1,12 +1,12 @@
 import pygame, os
-from core.loader import load
+import core.assets as assets
 
 class Player:
-    def __init__(self, x, y, speed=200):
+    def __init__(self, x, y, speed=300):
         self.x = x
         self.y = y
         self.speed = speed
-        self.player = load(os.path.join('assets', 'images', 'Player.png'))
+        self.player = assets.BLACK_PLAYER_IDLE_FRONT[0]
 
     def update(self, delta_time, keys):
         dx = dy = 0
