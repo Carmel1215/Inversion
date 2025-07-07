@@ -1,6 +1,7 @@
 import pygame
 import core.settings as settings
 from core.settings import *
+from core.assets import load_assets
 from core.scene_manager import SceneManager
 from scenes.intro_scene import IntroScene
 
@@ -11,6 +12,8 @@ class Game:
         # pygame.display.set_icon(settings.icon)
         self.clock = pygame.time.Clock()
         self.running = True
+
+        load_assets()
 
         self.scene_manager = SceneManager()
         self.scene_manager.go_to(IntroScene(self))
