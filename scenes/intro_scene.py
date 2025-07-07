@@ -6,8 +6,7 @@ from core.settings import *
 class IntroScene(Scene):
     def __init__(self, game):
         super().__init__(game)
-        self.player = Player(100, 50)
-
+        self.player = Player(400, 500)
 
     def handle_events(self, events):
         for event in events:
@@ -20,4 +19,3 @@ class IntroScene(Scene):
     def draw(self, screen):
         screen.fill(BLACK)
         self.player.draw(screen)
-
