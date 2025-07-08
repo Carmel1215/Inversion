@@ -32,7 +32,7 @@ class Game:
 
             # 디버깅용 FPS 출력
             fps = self.clock.get_fps()
-            fps_text = fps_font.render(f"FPS: {fps:.1f}", True, (0, 255, 0))
+            fps_text = fps_font.render(f"[DEBUG] FPS: {fps:.1f}", True, (0, 255, 0))
             self.screen.blit(fps_text, (10, 10))
 
             pygame.display.update()
