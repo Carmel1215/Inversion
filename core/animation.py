@@ -1,5 +1,5 @@
 class Animation:
-    def __init__(self, frames, speed=0.15, loop=True):
+    def __init__(self, frames, speed=0.1, loop=True):
         self.frames = frames
         self.speed = speed
         self.loop = loop
