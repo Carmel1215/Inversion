@@ -4,6 +4,7 @@ TITLE = "Inversion"
 FPS = 150
 SCALE = 4
 FONT_PATH = os.path.join('assets', 'fonts', 'NeoDunggeunmoPro-Regular.ttf')
+IS_INVERSION = False
 # icon = pygame.image.load("assets/images/icon.png")
 
 # 색깔

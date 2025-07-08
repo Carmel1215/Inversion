@@ -1,11 +1,12 @@
 import pygame, os
 from core.animator import Animator
 from core.animation import Animation
+import core.settings as settings
 import core.assets as assets
 
 
 class Player:
-    def __init__(self, x, y, speed=300):
+    def __init__(self, x, y, speed=250):
         self.x = x
         self.y = y
         self.speed = speed
@@ -16,28 +17,31 @@ class Player:
             # Black Idle
             "BlackIdleFront" : Animation(assets.BLACK_PLAYER_IDLE_FRONT, 0.5),
             "BlackIdleBack" : Animation(assets.BLACK_PLAYER_IDLE_BACK, 0.5),
-            "BlackIdleLeft" : Animation(assets.BLACK_PLAYER_IDLE_LEFT, 0.5),
-            "BlackIdleRight" : Animation(assets.BLACK_PLAYER_IDLE_RIGHT, 0.5),
+            "BlackIdleLeft" : Animation(assets.BLACK_PLAYER_IDLE_LEFT, 1),
+            "BlackIdleRight" : Animation(assets.BLACK_PLAYER_IDLE_RIGHT, 1),
 
             # Black Walk
-            "BlackWalkFront" : Animation(assets.BLACK_PLAYER_WALK_FRONT),
-            "BlackWalkBack" : Animation(assets.BLACK_PLAYER_WALK_BACK),
+            "BlackWalkFront" : Animation(assets.BLACK_PLAYER_WALK_FRONT, 0.25),
+            "BlackWalkBack" : Animation(assets.BLACK_PLAYER_WALK_BACK, 0.25),
             "BlackWalkLeft" : Animation(assets.BLACK_PLAYER_WALK_LEFT),
             "BlackWalkRight" : Animation(assets.BLACK_PLAYER_WALK_RIGHT),
 
             # White Idle
             "WhiteIdleFront" : Animation(assets.WHITE_PLAYER_IDLE_FRONT, 0.5),
             "WhiteIdleBack" : Animation(assets.WHITE_PLAYER_IDLE_BACK, 0.5),
-            "WhiteIdleLeft" : Animation(assets.WHITE_PLAYER_IDLE_LEFT, 0.5),
-            "WhiteIdleRight" : Animation(assets.WHITE_PLAYER_IDLE_RIGHT, 0.5),
+            "WhiteIdleLeft" : Animation(assets.WHITE_PLAYER_IDLE_LEFT, 1),
+            "WhiteIdleRight" : Animation(assets.WHITE_PLAYER_IDLE_RIGHT, 1),
 
             # White Walk
-            "WhiteWalkFront" : Animation(assets.WHITE_PLAYER_WALK_FRONT),
-            "WhiteWalkBack" : Animation(assets.WHITE_PLAYER_WALK_BACK),
+            "WhiteWalkFront" : Animation(assets.WHITE_PLAYER_WALK_FRONT, 0.25),
+            "WhiteWalkBack" : Animation(assets.WHITE_PLAYER_WALK_BACK, 0.25),
             "WhiteWalkLeft" : Animation(assets.WHITE_PLAYER_WALK_LEFT),
             "WhiteWalkRight" : Animation(assets.WHITE_PLAYER_WALK_RIGHT),
         })
         self.animator.set("BlackIdleFront")
+
+    def toggle_inversion(self):
+        settings.IS_INVERSION = not settings.IS_INVERSION
 
     def update(self, delta_time, keys):
         dx = dy = 0
@@ -64,7 +68,7 @@ class Player:
         self.x += dx * self.speed * delta_time
         self.y += dy * self.speed * delta_time
 
-        animation_name = f"Black{self.state}{self.direction}"
+        animation_name = f"White{self.state}{self.direction}" if settings.IS_INVERSION else f"Black{self.state}{self.direction}"
         self.animator.set(animation_name)
         self.animator.update(delta_time)
 
