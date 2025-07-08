@@ -67,8 +67,8 @@ class Player(pygame.sprite.Sprite):
 
         self.state = 'Walk' if is_moving else 'Idle'
 
-        self.rect.x += dx * self.speed * delta_time
-        self.rect.y += dy * self.speed * delta_time
+        self.rect.x += dx * round(self.speed * delta_time) # round처리한 이유: 좌표는 무조건 정수이기 때문에 소수값을 집어넣으면 무조건 버림을 하고 따라서 속도에 차이가 나기 때문
+        self.rect.y += dy * round(self.speed * delta_time) # round처리한 이유: 좌표는 무조건 정수이기 때문에 소수값을 집어넣으면 무조건 버림을 하고 따라서 속도에 차이가 나기 때문
 
         animation_name = f"White{self.state}{self.direction}" if settings.IS_INVERSION else f"Black{self.state}{self.direction}"
         self.animator.set(animation_name)
@@ -77,4 +77,4 @@ class Player(pygame.sprite.Sprite):
         self.image = self.animator.get_image()
 
     def draw(self, screen):
-        screen.blit(self.animator.get_image(), (self.rect.x, self.rect.y))
+        screen.blit(self.image, (self.rect.x, self.rect.y))
