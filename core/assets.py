@@ -1,6 +1,7 @@
 import os
 from core.loader import load
 
+# Player
 BLACK_PLAYER_IDLE_FRONT = []
 BLACK_PLAYER_IDLE_BACK = []
 BLACK_PLAYER_IDLE_LEFT = []
@@ -21,11 +22,17 @@ WHITE_PLAYER_WALK_BACK = []
 WHITE_PLAYER_WALK_LEFT = []
 WHITE_PLAYER_WALK_RIGHT = []
 
+# UI
+START_BUTTON_IDLE, START_BUTTON_CLICKED = None, None
+QUIT_BUTTON_IDLE, QUIT_BUTTON_CLICKED = None, None
+
 def load_assets():
     global BLACK_PLAYER_IDLE_FRONT, BLACK_PLAYER_IDLE_BACK, BLACK_PLAYER_IDLE_LEFT, BLACK_PLAYER_IDLE_RIGHT
     global BLACK_PLAYER_WALK_FRONT, BLACK_PLAYER_WALK_BACK, BLACK_PLAYER_WALK_LEFT, BLACK_PLAYER_WALK_RIGHT
     global WHITE_PLAYER_IDLE_FRONT, WHITE_PLAYER_IDLE_BACK, WHITE_PLAYER_IDLE_LEFT, WHITE_PLAYER_IDLE_RIGHT
     global WHITE_PLAYER_WALK_FRONT, WHITE_PLAYER_WALK_BACK, WHITE_PLAYER_WALK_LEFT, WHITE_PLAYER_WALK_RIGHT
+    global START_BUTTON_IDLE, START_BUTTON_CLICKED
+    global QUIT_BUTTON_IDLE, QUIT_BUTTON_CLICKED
 
     BLACK_PLAYER_IDLE_FRONT = [
         load(os.path.join('assets', 'images', 'Player', 'Black', 'IdleFront', f'IdleFront{i}.png'))
@@ -106,3 +113,9 @@ def load_assets():
         load(os.path.join('assets', 'images', 'Player', 'White', 'WalkRight', f'WalkRight{i}.png'))
         for i in range(1, 9)
     ]
+
+    START_BUTTON_IDLE = load(os.path.join('assets', 'images', 'UI', 'Button', 'Start', 'Start1.png'))
+    START_BUTTON_CLICKED = load(os.path.join('assets', 'images', 'UI', 'Button', 'Start', 'Start2.png'))
+
+    QUIT_BUTTON_IDLE = load(os.path.join('assets', 'images', 'UI', 'Button', 'Quit', 'Quit1.png'))
+    QUIT_BUTTON_CLICKED = load(os.path.join('assets', 'images', 'UI', 'Button', 'Quit', 'Quit2.png'))
