@@ -5,10 +5,9 @@ import core.settings as settings
 import core.assets as assets
 
 
-class Player:
+class Player(pygame.sprite.Sprite):
     def __init__(self, x, y, speed=250):
-        self.x = x
-        self.y = y
+        super().__init__()
         self.speed = speed
         self.direction = 'Front' # 'Front' 또는 'Back' 또는 'Left' 또는 'Right'
         self.state = 'Idle' # 'Idle' 또는 'Walk'
@@ -40,6 +39,9 @@ class Player:
         })
         self.animator.set("BlackIdleFront")
 
+        self.image = self.animator.get_image()
+        self.rect = self.image.get_rect(topleft=(x, y))
+
     def toggle_inversion(self):
         settings.IS_INVERSION = not settings.IS_INVERSION
 
@@ -65,12 +67,14 @@ class Player:
 
         self.state = 'Walk' if is_moving else 'Idle'
 
-        self.x += dx * self.speed * delta_time
-        self.y += dy * self.speed * delta_time
+        self.rect.x += dx * self.speed * delta_time
+        self.rect.y += dy * self.speed * delta_time
 
         animation_name = f"White{self.state}{self.direction}" if settings.IS_INVERSION else f"Black{self.state}{self.direction}"
         self.animator.set(animation_name)
         self.animator.update(delta_time)
 
+        self.image = self.animator.get_image()
+
     def draw(self, screen):
-        screen.blit(self.animator.get_image(), (self.x, self.y))
+        screen.blit(self.animator.get_image(), (self.rect.x, self.rect.y))
