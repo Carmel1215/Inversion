@@ -28,81 +28,81 @@ def load_assets():
     global WHITE_PLAYER_WALK_FRONT, WHITE_PLAYER_WALK_BACK, WHITE_PLAYER_WALK_LEFT, WHITE_PLAYER_WALK_RIGHT
 
     BLACK_PLAYER_IDLE_FRONT = [
-        load(os.path.join('assets', 'images', 'Player', 'Black', 'IdleFront', f'BlackIdleFront{i}.png'))
+        load(os.path.join('assets', 'images', 'Player', 'Black', 'IdleFront', f'IdleFront{i}.png'))
         for i in range(1, 5)
     ]
 
     BLACK_PLAYER_IDLE_BACK = [
-        load(os.path.join('assets', 'images', 'Player', 'Black', 'IdleBack', f'BlackIdleBack{i}.png'))
+        load(os.path.join('assets', 'images', 'Player', 'Black', 'IdleBack', f'IdleBack{i}.png'))
         for i in range(1, 5)
     ]
 
     BLACK_PLAYER_IDLE_LEFT = [
-        load(os.path.join('assets', 'images', 'Player', 'Black', 'IdleLeft', f'BlackIdleLeft{i}.png'))
-        for i in range(1, 5)
+        load(os.path.join('assets', 'images', 'Player', 'Black', 'IdleLeft', f'IdleLeft{i}.png'))
+        for i in range(1, 3)
     ]
 
     BLACK_PLAYER_IDLE_RIGHT = [
-        load(os.path.join('assets', 'images', 'Player', 'Black', 'IdleRight', f'BlackIdleRight{i}.png'))
-        for i in range(1, 5)
+        load(os.path.join('assets', 'images', 'Player', 'Black', 'IdleRight', f'IdleRight{i}.png'))
+        for i in range(1, 3)
     ]
 
     BLACK_PLAYER_WALK_FRONT = [
-        load(os.path.join('assets', 'images', 'Player', 'Black', 'WalkFront', f'BlackWalkFront{i}.png'))
+        load(os.path.join('assets', 'images', 'Player', 'Black', 'WalkFront', f'WalkFront{i}.png'))
         for i in range(1, 5)
     ]
 
     BLACK_PLAYER_WALK_BACK = [
-        load(os.path.join('assets', 'images', 'Player', 'Black', 'WalkBack', f'BlackWalkBack{i}.png'))
+        load(os.path.join('assets', 'images', 'Player', 'Black', 'WalkBack', f'WalkBack{i}.png'))
         for i in range(1, 5)
     ]
 
     BLACK_PLAYER_WALK_LEFT = [
-        load(os.path.join('assets', 'images', 'Player', 'Black', 'WalkLeft', f'BlackWalkLeft{i}.png'))
-        for i in range(1, 5)
+        load(os.path.join('assets', 'images', 'Player', 'Black', 'WalkLeft', f'WalkLeft{i}.png'))
+        for i in range(1, 9)
     ]
 
     BLACK_PLAYER_WALK_RIGHT = [
-        load(os.path.join('assets', 'images', 'Player', 'Black', 'WalkRight', f'BlackWalkRight{i}.png'))
-        for i in range(1, 5)
+        load(os.path.join('assets', 'images', 'Player', 'Black', 'WalkRight', f'WalkRight{i}.png'))
+        for i in range(1, 9)
     ]
 
     WHITE_PLAYER_IDLE_FRONT = [
-        load(os.path.join('assets', 'images', 'Player', 'White', 'IdleFront', f'WhiteIdleFront{i}.png'))
+        load(os.path.join('assets', 'images', 'Player', 'White', 'IdleFront', f'IdleFront{i}.png'))
         for i in range(1, 5)
     ]
 
     WHITE_PLAYER_IDLE_BACK = [
-        load(os.path.join('assets', 'images', 'Player', 'White', 'IdleBack', f'WhiteIdleBack{i}.png'))
+        load(os.path.join('assets', 'images', 'Player', 'White', 'IdleBack', f'IdleBack{i}.png'))
         for i in range(1, 5)
     ]
 
     WHITE_PLAYER_IDLE_LEFT = [
-        load(os.path.join('assets', 'images', 'Player', 'White', 'IdleLeft', f'WhiteIdleLeft{i}.png'))
-        for i in range(1, 5)
+        load(os.path.join('assets', 'images', 'Player', 'White', 'IdleLeft', f'IdleLeft{i}.png'))
+        for i in range(1, 3)
     ]
 
     WHITE_PLAYER_IDLE_RIGHT = [
-        load(os.path.join('assets', 'images', 'Player', 'White', 'IdleRight', f'WhiteIdleRight{i}.png'))
-        for i in range(1, 5)
+        load(os.path.join('assets', 'images', 'Player', 'White', 'IdleRight', f'IdleRight{i}.png'))
+        for i in range(1, 3)
     ]
 
     WHITE_PLAYER_WALK_FRONT = [
-        load(os.path.join('assets', 'images', 'Player', 'White', 'WalkFront', f'WhiteWalkFront{i}.png'))
+        load(os.path.join('assets', 'images', 'Player', 'White', 'WalkFront', f'WalkFront{i}.png'))
         for i in range(1, 5)
     ]
 
     WHITE_PLAYER_WALK_BACK = [
-        load(os.path.join('assets', 'images', 'Player', 'White', 'WalkBack', f'WhiteWalkBack{i}.png'))
+        load(os.path.join('assets', 'images', 'Player', 'White', 'WalkBack', f'WalkBack{i}.png'))
         for i in range(1, 5)
     ]
 
     WHITE_PLAYER_WALK_LEFT = [
-        load(os.path.join('assets', 'images', 'Player', 'White', 'WalkLeft', f'WhiteWalkLeft{i}.png'))
-        for i in range(1, 5)
+        load(os.path.join('assets', 'images', 'Player', 'White', 'WalkLeft', f'WalkLeft{i}.png'))
+        for i in range(1, 9)
     ]
 
     WHITE_PLAYER_WALK_RIGHT = [
-        load(os.path.join('assets', 'images', 'Player', 'White', 'WalkRight', f'WhiteWalkRight{i}.png'))
-        for i in range(1, 5)
+        load(os.path.join('assets', 'images', 'Player', 'White', 'WalkRight', f'WalkRight{i}.png'))
+        for i in range(1, 9)
     ]
