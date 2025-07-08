@@ -6,9 +6,14 @@ import core.settings as settings
 class IntroScene(Scene):
     def __init__(self, game):
         super().__init__(game)
-        self.player = Player(400, 500)
 
+        # 변수 지정
         self.font = pygame.font.Font(settings.FONT_PATH, 256)
+        info = pygame.display.Info()
+
+        # Player 초기화 및 위치 지정
+        self.player = Player(0, 0)
+        self.player.rect.topleft = ( (info.current_w - self.player.rect.width) // 2, (info.current_h - self.player.rect.height) // 2 )
 
     def handle_events(self, events):
         for event in events:
